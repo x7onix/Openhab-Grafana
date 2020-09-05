@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-left mt-1">
+      <div class="btn-group" role="group" aria-label="Diagram Type">
+        <button type="button"
+                (click)="onTypeSelect(DiagramType.Temperature)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedType === DiagramType.Temperature">Temperature</button>
+        <button type="button"
+                (click)="onTypeSelect(DiagramType.Co2)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedType === DiagramType.Co2">CO2</button>
+        <button type="button"
+                (click)="onTypeSelect(DiagramType.Humidity)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedType === DiagramType.Humidity">Humidity</button>
+        <button type="button"
+                (click)="onTypeSelect(DiagramType.Battery)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedType === DiagramType.Battery">Battery</button>
+      </div>
+    </div>
+    <div class="col text-right mt-1">
+      <div class="btn-group" role="group" aria-label="Diagram Period">
+        <button type="button"
+                (click)="onPeriodSelect(PeriodType.TwelveHours)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedPeriod === PeriodType.TwelveHours">12H</button>
+        <button type="button"
+                (click)="onPeriodSelect(PeriodType.TwentyFourHours)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedPeriod === PeriodType.TwentyFourHours">24H</button>
+        <button type="button"
+                (click)="onPeriodSelect(PeriodType.ThreeDays)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedPeriod === PeriodType.ThreeDays">3D</button>
+        <button type="button"
+                (click)="onPeriodSelect(PeriodType.SevenDays)"
+                class="btn btn-outline-primary"
+                [class.selected]="selectedPeriod === PeriodType.SevenDays">7D</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <iframe class="grafana_netatmo_style" [src]="grafanaUrl | urlSafePipe" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
